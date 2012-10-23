@@ -13,7 +13,7 @@ public class CalculatorTest {
 
         int result = calculator.add(3, 4);
 
-        assertEquals(result, 73);
+        assertEquals(result, 7);
     }
 
     @Test
