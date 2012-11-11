@@ -23,6 +23,10 @@ public class Calculator
         throw new UnsupportedOperationException("to do neg");
     }
 
+    public int abs(int x) {
+        throw new UnsupportedOperationException("to do abs");
+    }
+
     public int min(int x, int y) {
         throw new UnsupportedOperationException("to do min");
     }
