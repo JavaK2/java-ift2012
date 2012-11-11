@@ -16,8 +16,38 @@ public class Calculator
     }
 
     public int divide(int x, int y) {
-        throw new UnsupportedOperationException("to do");
+        throw new UnsupportedOperationException("to do divide");
     }
+
+    public int neg(int x) {
+        throw new UnsupportedOperationException("to do neg");
+    }
+
+    public int min(int x, int y) {
+        throw new UnsupportedOperationException("to do min");
+    }
+
+    public int max(int x, int y) {
+        throw new UnsupportedOperationException("to do max");
+    }
+
+
+    public int min(int x, int y, int z) {
+        throw new UnsupportedOperationException("to do min");
+    }
+
+    public int max(int x, int y, int z) {
+        throw new UnsupportedOperationException("to do max");
+    }
+
+    public int min(int x, int y, int z, int t) {
+        throw new UnsupportedOperationException("to do min");
+    }
+
+    public int max(int x, int y, int z, int t) {
+        throw new UnsupportedOperationException("to do max");
+    }
+
 
 
 }
