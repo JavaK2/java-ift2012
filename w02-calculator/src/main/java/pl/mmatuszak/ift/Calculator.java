@@ -8,7 +8,7 @@ public class Calculator
     }
 
     public int subtract(int x, int y) {
-        return x - y;
+        return x + neg(y);
     }
 
     public int multiply(int x, int y) {
@@ -19,5 +19,12 @@ public class Calculator
         throw new UnsupportedOperationException("to do");
     }
 
+
+    public int neg(int x) {
+        if (x > 0) {
+            return -x;
+        }
+        return x;
+    }
 
 }

@@ -17,6 +17,15 @@ public class CalculatorTest {
     }
 
     @Test
+    public void shouldA() {
+        Calculator calculator = new Calculator();
+
+        int result = calculator.subtract(-3, -2);
+
+        assertEquals(result, -1);
+    }
+
+    @Test
     public void shouldSubtractOneNumberFromAnother() {
         Calculator calculator = new Calculator();
 
@@ -32,6 +41,16 @@ public class CalculatorTest {
         int result = calculator.multiply(3, 2);
 
         assertEquals(result, 6);
+    }
+
+
+    @Test
+    public void shouldNegateGivenValue() {
+        Calculator calculator = new Calculator();
+
+        int result = calculator.neg(3);
+
+        assertEquals(result, -3);
     }
 
 }
