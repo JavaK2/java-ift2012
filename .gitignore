@@ -18,7 +18,11 @@ build/*
 
 *.iml
 *.ipr
-*iws
+*.iws
+*.aux
+*.dvi
+*.log
+
 
 w02-calculator/build/*
 w02-calculator/.gradle/*
