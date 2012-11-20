@@ -549,3 +549,431 @@ Switch
 	} while (x < 3);		|
 							|
 	println("x="+x);		| x=3
+
+
+!SLIDE
+
+# For loop
+
+	@@@JAVA
+					
+	for (declaration ; 
+			condition ; 
+				update_action ) {
+		statement 
+	}
+
+
+!SLIDE
+
+# For loop
+
+	@@@JAVA
+
+	int x = 0;						| x == 0
+									|
+	for (int i = 0; i < 10; ++i) {	|
+		x = x + i;					|
+	}								|
+									|
+	println("x="+x);				| 
+
+!SLIDE
+
+# For loop
+
+	@@@JAVA
+
+	int x = 0;						| 
+									|
+	for (int i = 0; i < 10; ++i) {	| i == 0
+		x = x + i;					| 
+	}								|
+									|
+	println("x="+x);				| 
+
+
+
+!SLIDE
+
+# For loop
+
+	@@@JAVA
+
+	int x = 0;						| 
+									|
+	for (int i = 0; i < 10; ++i) {	| 
+		x = x + i;					| x == 0
+	}								|
+									|
+	println("x="+x);				| 
+
+!SLIDE
+
+# For loop
+
+	@@@JAVA
+
+	int x = 0;						| 
+									|
+	for (int i = 0; i < 10; ++i) {	| i == 1
+		x = x + i;					| 
+	}								|
+									|
+	println("x="+x);				| 
+
+!SLIDE
+
+# For loop
+
+	@@@JAVA
+
+	int x = 0;						| 
+									|
+	for (int i = 0; i < 10; ++i) {	| 
+		x = x + i;					| x == 1
+	}								|
+									|
+	println("x="+x);				|
+
+!SLIDE
+
+# For loop
+
+	@@@JAVA
+
+	int x = 0;						| 
+									|
+	for (int i = 0; i < 10; ++i) {	| i == 2
+		x = x + i;					| 
+	}								|
+									|
+	println("x="+x);				| 
+
+!SLIDE
+
+# For loop
+
+	@@@JAVA
+
+	int x = 0;						| 
+									|
+	for (int i = 0; i < 10; ++i) {	| 
+		x = x + i;					| x == 3
+	}								|
+									|
+	println("x="+x);				|
+
+!SLIDE
+
+# For loop
+
+	@@@JAVA
+
+	int x = 0;						| 
+									|
+	for (int i = 0; i < 10; ++i) {	| i == 3
+		x = x + i;					| 
+	}								|
+									|
+	println("x="+x);				| 
+
+!SLIDE
+
+# For loop
+
+	@@@JAVA
+
+	int x = 0;						| 
+									|
+	for (int i = 0; i < 10; ++i) {	| 
+		x = x + i;					| x == 6
+	}								|
+									|
+	println("x="+x);				|
+
+!SLIDE
+
+# For loop
+
+	@@@JAVA
+
+	int x = 0;						| 
+									|
+	for (int i = 0; i < 10; ++i) {	| i == 9
+		x = x + i;					| 
+	}								|
+									|
+	println("x="+x);				| 
+
+!SLIDE
+
+# For loop
+
+	@@@JAVA
+
+	int x = 0;						| 
+									|
+	for (int i = 0; i < 10; ++i) {	| 
+		x = x + i;					| x == 45
+	}								|
+									|
+	println("x="+x);				|
+
+!SLIDE
+
+# For loop
+
+	@@@JAVA
+
+	int x = 0;						| 
+									|
+	for (int i = 0; i < 10; ++i) {	| 
+		x = x + i;					| 
+	}								|
+									|
+	println("x="+x);				| x == 45
+
+!SLIDE
+
+# For loop - variations
+
+	@@@JAVA
+
+	int x = 0;						 
+									
+	for ( ; x < 10; ++x) {	 
+		println(x);					
+	}	
+
+
+!SLIDE
+
+# For loop - variations
+
+	@@@JAVA
+
+	int x = 0;						 
+									
+	for ( ; x < 10;) {	 
+		++x;
+		println(x);
+	}
+
+
+
+
+!SLIDE
+
+# For loop - variations
+
+	@@@JAVA
+
+	int x = 0;						 
+									
+	for (int a = 0, b[] = { 1 }, 
+			c[][] = { { 1 }, { 2 } }; 
+				a < 10 && x == 0; a++) {
+ 
+	}
+
+!SLIDE
+
+# For loop - variations
+
+	@@@JAVA
+									
+	for ( Object a = new Object() ;  ; ) {	 
+		
+	}					
+
+!SLIDE
+
+# Infinite loops
+
+	@@@JAVA
+									
+	for ( ; ; ) {	 
+		
+	}
+
+	while(true) {
+
+	}	
+
+	do {
+
+	} while(true);				
+
+!SLIDE
+
+# Switch statement 
+
+
+	@@@JAVA
+
+	switch (test) {
+
+		case value:
+			statement;
+		case value:
+			statement;
+		default:
+			statement;
+	}
+
+!SLIDE smaller
+
+#	
+	@@@JAVA
+
+	int choice = getChoice();		|
+									|
+	switch(choice) {				|
+		case 1: 					|
+			println("1");			|
+		case 2:						|
+			println("1");			|
+		case 3:						|
+			println("1");			|
+			break;					|
+		case 4:						|
+			println("1");			|
+			break;					|
+		default:					|
+			println("1");			|
+	}
+-------------------------------------
+
+
+!SLIDE smaller
+
+#	
+	@@@JAVA
+
+	int choice = getChoice();		| choice == 1
+									|
+	switch(choice) {				|
+		case 1: 					|
+			println("case 1");		|
+		case 2:						|
+			println("case 2");		|
+		case 3:						|
+			println("case 3");		|
+			break;					|
+		case 4:						|
+			println("case 4");		|
+			break;					|
+		default:					|
+			println("default");		|
+	}
+-------------------------------------
+
+##case 1
+##case 2
+##case 3
+
+!SLIDE smaller
+
+#	
+	@@@JAVA
+
+	int choice = getChoice();		| choice == 2
+									|
+	switch(choice) {				|
+		case 1: 					|
+			println("case 1");		|
+		case 2:						|
+			println("case 2");		|
+		case 3:						|
+			println("case 3");		|
+			break;					|
+		case 4:						|
+			println("case 4");		|
+			break;					|
+		default:					|
+			println("default");		|
+	}
+-------------------------------------
+
+##case 2
+##case 3
+
+!SLIDE smaller
+
+#	
+	@@@JAVA
+
+	int choice = getChoice();		| choice == 3
+									|
+	switch(choice) {				|
+		case 1: 					|
+			println("case 1");		|
+		case 2:						|
+			println("case 2");		|
+		case 3:						|
+			println("case 3");		|
+			break;					|
+		case 4:						|
+			println("case 4");		|
+			break;					|
+		default:					|
+			println("default");		|
+	}
+-------------------------------------
+
+##case 3
+
+
+!SLIDE smaller
+
+#	
+	@@@JAVA
+
+	int choice = getChoice();		| choice == 4
+									|
+	switch(choice) {				|
+		case 1: 					|
+			println("case 1");		|
+		case 2:						|
+			println("case 2");		|
+		case 3:						|
+			println("case 3");		|
+			break;					|
+		case 4:						|
+			println("case 4");		|
+			break;					|
+		default:					|
+			println("default");		|
+	}
+-------------------------------------
+
+##case 4
+
+
+!SLIDE smaller
+
+#	
+	@@@JAVA
+
+	int choice = getChoice();		| choice == 5
+									|
+	switch(choice) {				|
+		case 1: 					|
+			println("case 1");		|
+		case 2:						|
+			println("case 2");		|
+		case 3:						|
+			println("case 3");		|
+			break;					|
+		case 4:						|
+			println("case 4");		|
+			break;					|
+		default:					|
+			println("default");		|
+	}
+-------------------------------------
+
+##default
+
+
