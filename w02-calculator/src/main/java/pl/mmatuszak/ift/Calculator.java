@@ -20,7 +20,7 @@ public class Calculator
     }
 
     public int neg(int x) {
-        throw new UnsupportedOperationException("to do neg");
+        return -x;
     }
 
     public int abs(int x) {
@@ -50,15 +50,6 @@ public class Calculator
 
     public int max(int x, int y, int z, int t) {
         throw new UnsupportedOperationException("to do max");
-    }
-
-
-
-    public int neg(int x) {
-        if (x > 0) {
-            return -x;
-        }
-        return x;
     }
 
 }
