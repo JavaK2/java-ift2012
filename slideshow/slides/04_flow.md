@@ -977,3 +977,69 @@ Switch
 ##default
 
 
+!SLIDE smaller incremental 
+
+## Arrays - characteristics 
+
+* arrays are objects
+* store multiple variables of the same type
+* can hold primitive or object reference; arrays are still objects!
+
+* No such thing as a PRIMITIVE ARRAY, but can be an ARRAY OF PRIMITIVES!
+* arrays are zero-base indexed
+
+!SLIDER smaller incremental
+
+# Three steps to construct array
+
+	@@@JAVA 
+
+	//declare - make an array reference variable 
+
+	int[] ar;
+	Object [] obj;
+
+	
+
+!SLIDER smaller incremental
+
+# Three steps to construct array
+
+	@@@JAVA 
+
+	//declare - make an array reference variable 
+
+	int[] ar;
+	Object [] obj;
+
+	//construct - make an array object
+
+	ar = new int [10];
+	obj = new Object[19];
+
+
+
+
+!SLIDER smaller incremental
+
+# Three steps to construct array
+
+	@@@JAVA 
+
+	//declare - make an array reference variable 
+
+	int[] ar;
+	Object [] obj;
+
+	//construct - make an array object
+
+	ar = new int[10];
+	obj = new Object[19];
+
+	//initialize - populate the array with elements
+	
+	for (int i = 0; i < 10; ++i) { ar[i] = i; }
+	obj[0] = new Object();
+	obj[1] = new Object();
+
+
