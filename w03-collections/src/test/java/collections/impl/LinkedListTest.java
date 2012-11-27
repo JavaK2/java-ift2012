@@ -12,7 +12,7 @@ public class LinkedListTest {
 
     @Test
     public void empty_list_should_have_zero_size() {
-        LinkedList list = new LinkedList();
+        ArrayStack list = new ArrayStack();
         assertEquals(list.size(), 0);
     }
 }

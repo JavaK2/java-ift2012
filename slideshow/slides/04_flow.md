@@ -1043,3 +1043,76 @@ Switch
 	obj[1] = new Object();
 
 
+!SLIDE center
+
+![SDP](img3/array_1.png)
+
+!SLIDE center
+
+![SDP](img3/array_2.png)
+
+!SLIDE center
+
+![SDP](img3/array_3.png)
+
+!SLIDE center
+
+![SDP](img3/array_4.png)
+
+!SLIDE center
+
+![SDP](img3/array_5.png)
+
+!SLIDE center
+
+![SDP](img3/array_6.png)
+
+!SLIDE center
+
+![SDP](img3/objects_1.png)
+
+!SLIDE center
+
+![SDP](img3/objects_2.png)
+
+!SLIDE center
+
+![SDP](img3/objects_3.png)
+
+!SLIDE center
+
+![SDP](img3/objects_4.png)
+
+!SLIDE center
+
+![SDP](img3/objects_5.png)
+
+!SLIDE center
+
+![SDP](img3/objects_6.png)
+
+!SLIDE center
+
+![SDP](img3/points_1.png)
+
+!SLIDE center
+
+![SDP](img3/points_2.png)
+
+!SLIDE center
+
+![SDP](img3/points_3.png)
+
+!SLIDE center
+
+![SDP](img3/points_4.png)
+
+!SLIDE center
+
+![SDP](img3/points_5.png)
+
+!SLIDE center
+
+![SDP](img3/points_6.png)
+
+
