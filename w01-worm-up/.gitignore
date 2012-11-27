@@ -1,7 +1,7 @@
 .idea
 atlassian-ide-plugin.xml
 *.iml
-classes
+java.classes
 .gradle
 cache/
 datatypes/build/
