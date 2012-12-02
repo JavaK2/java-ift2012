@@ -23,7 +23,6 @@ build/*
 *.dvi
 *.log
 
-script/*.pdf
 
 w02-calculator/build/*
 w02-calculator/.gradle/*
