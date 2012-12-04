@@ -9,4 +9,12 @@ public class RationalNumber {
     int num;
     int den;
 
+    public RationalNumber plus(RationalNumber re) {
+        return null;
+    }
+
+    public RationalNumber minus(RationalNumber re) {
+        return null;
+
+    }
 }
