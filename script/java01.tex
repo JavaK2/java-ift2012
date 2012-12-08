@@ -43,7 +43,7 @@ W przypadku konwersji typów należy rozpatrzeć dwa przypadki - niejawne - nie 
 Rzutowanie automatyczne zachodzi w przypadku przypisywania typu od mniejszej ,,dokładności'' do typu o większej (na diagramie są możliwe operacje, które obrazują czarne strzałki). 
 \begin{figure}
 \centering
-\includegraphics[scale=0.4]{drawing.png}
+%\includegraphics[scale=0.4]{drawing.png}	
 \caption{Hierarchia typów}
 \end{figure}
 Przykładowe konwersje, które nie wymagają jawnego rzutowania, oraz nie powodują utraty danych.
@@ -124,8 +124,54 @@ W instrukcji $\textit{switch}$ $\textit{warunek\_wyboru}$ nie jest wyrażeniem l
 W powyższym przykładzie, jeżeli wartość wejściowa będzie równa 0, zostanie wyświetlone '0'. W kolejnej linijce znajduje się instrukcja $\textit{break}$, która przerywa działanie $\textit{switch}$.
 Jeżeli, wartość wejściowa będzie równa 1, zostaną wyświetlone następujące napisy: '1', '2,3'. '4' nie zostanie wyświetlone ponieważ, poprzedni blok konczy się instrukcją $break$. Jeżeli wartość wejściowa będzie równa, np. 1000, nie zostanie dopawowany żaden warunek i wykona się instrukcja z $\textit{default}$
 
+\section{Klasy}
+Program napisany w javie składa się z obiektów. Każdy z nich posiada określony stan, zachowanie, tożsamość. Stan określony przez zmienne, zachowanie definiujemy w metodach, które mogą zmieniać aktualny stan obiektu. Tożsamość pozwala odróżnić dwa obiekty, posiadające ten sam stan, od siebie. \\
+Aby utworzyć obiekt, potrzebujemy szablonu, który definiuje dostępne zachowania albo pola, które będą przechowywały stan.\\
+  
+\subsection{Tworzenie klas}
+Klasy przechowywane są w plikach tekstowych (zwyczajowo z rozszerzeniem 'java'). Zdefiniowanych jest szereg reguł dotyczących stworzenia klasy oraz ich struktury
+\begin{itemize}
+\item w pliku źródłowym może być zdefiniowana tylko jedna klasa $\textit{publiczna}$. Może nie być żadnej.
+\item komentarze mogą znajdować się w dowolnym miejscu w pliku
+\item nazwa pliku musi być identyczna do nazwy klasy $\textit{publicznej}$. Przykładowo klasa $public class Point { }$ musi znajdować się w pliku o nazwie $Point.java$
+\item jeśli klasa umieszczona jest w pakiecie, deklaracja pakietu musi znajdować się w pierwszej linijce (nie uwzględniając komentarzy)
+\item definicje importów muszą znajdować się pomiędzy deklaracją pakietu (lub początkiem pliku) oraz definicją pierwszej klasy
+\item definicja pakietu oraz importów odnoszą się do całego pliku
+\item w pliku źródłowym mogą znajdować się definicje $\textit{nie-publicznych}$ klas
+\end{itemize}
 
+Najprostsza definicja klasy składa się z słowa kluczowego $\textit{class}$ oraz nazwy klasy.
+\begin{lstlisting}
+class Point { }
+\end{lstlisting}
+Klasa $\textit{Point}$ zdefiniowana w powyższy sposób posiada dodatkowo niejawny modyfikator dostępu. 
 
+ 	
+\subsection{Modyfikatory dostępu}
+Służą do określenia 'widzialności' klasy w obrębie projektu, dzięki temu kontrolujemy dostęp do klas.
+Dostępne są cztery poziomy dostępu oraz trzy modyfikatory dostępu, są to kolejno
+\begin{itemize}
+\item private - dane dostępne tylko w ramach danej klasy
+\item protected - dane dostępne są z poziomu pakietu (klasy będące w tym samym katalogu) oraz klasy dziedziczące
+\item public - dane dostępne są bez ograniczeń 
+\end{itemize}
+
+Ostatni poziom dostępu nie ma powiązanego słowa kluczowego, jeśli nie zdefiniujemy inaczej, zawsze jest $\textit{nadany}$ jako domyślny. Stąd nazywany jest modyfikatorem domyślnym $\textit{default}$ lub pakietowym.
+Dane z domyślnym dostępem są widoczne tylko i wyłącznie w zakresie danego pakietu. Modyfikator $\textit{default}$ zachowuje się podobnie do $\textit{protected}$ z tym, że dane nie będą widoczne w czasie dziedziczenia.\\
+Przez widoczność klasy, metody lub pola rozumiemy operacje:
+\begin{itemize}
+\item utworzenie instancji klasy
+\item dziedziczenie
+\item wywołanie na obiekcie metody lub dostęp do pola
+\end{itemize}  
+Kilka przykładów
+\begin{lstlisting}
+//Triangle.java
+package shapes;
+
+class Triangle { }
+
+\end{	lstlisting}
 
 
 \end{document}

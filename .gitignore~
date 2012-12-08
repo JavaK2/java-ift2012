@@ -23,11 +23,6 @@ build/*
 *.dvi
 *.log
 
-<<<<<<< HEAD
-*.*~
-=======
-script/*.pdf
->>>>>>> 95943dae503001ee274e21960bc0d62c78922fdb
 
 w02-calculator/build/*
 w02-calculator/.gradle/*
