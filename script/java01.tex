@@ -8,14 +8,16 @@
 \selectlanguage{polish}
 \usepackage{graphicx}
 \usepackage{listings}
-
+\usepackage{minted}
 \begin{document}
+\definecolor{bg}{rgb}{0.95,0.95,0.95}
+
 Java jest wysokopoziomowym, kompilowanym, obiektowym językiem programowania z silną kontrolą typów. Oznacza to, że każda zmienna musi zostać zadeklarowana przed użyciem. 
 
 \section{Typy danych}
 Zmienne w javie dzielą się na trzy rodzaje typów
 \subsection{typy proste - prymitywy}
-Typy prymitywne służa do reprezentacji danych, nie będących obiektami\footnote{istnieją również typy obiektowe reprezentujące typy proste}. Są one wbudowane w język. Ważną cechą jest, że ich wielkość (rozmiar) nie zależy od konkretenej implementacji maszyny wirtualnej. Wyróżniamy osiem typów prostych, które można dodatkowo pogrupować ze względu na \textit{charakter}: typy całkowiete, zmiennoprzecinkowe, znakowe oraz logiczne.
+Typy prymitywne służą do reprezentacji danych, nie będących obiektami\footnote{istnieją również typy obiektowe reprezentujące typy proste}. Są one wbudowane w język. Ważną cechą jest, że ich wielkość (rozmiar) nie zależy od konkretnej implementacji maszyny wirtualnej. Wyróżniamy osiem typów prostych, które można dodatkowo pogrupować ze względu na \textit{charakter}: typy całkowite, zmiennoprzecinkowe, znakowe oraz logiczne.
 
 \begin{table}[h]
 \centering
@@ -39,7 +41,7 @@ Typy prymitywne służa do reprezentacji danych, nie będących obiektami\footno
 \end{table}
 
 \subsection{Konwersja typów numerycznych}
-W przypadku konwersji typów należy rozpatrzeć dwa przypadki - niejawne - nie wymagające użycia operatora rzutowania oraz wymagające jawnego rzutownania.
+W przypadku konwersji typów należy rozpatrzeć dwa przypadki - niejawne - nie wymagające użycia operatora rzutowania oraz wymagające jawnego rzutowania.
 Rzutowanie automatyczne zachodzi w przypadku przypisywania typu od mniejszej ,,dokładności'' do typu o większej (na diagramie są możliwe operacje, które obrazują czarne strzałki). 
 \begin{figure}
 \centering
@@ -48,17 +50,17 @@ Rzutowanie automatyczne zachodzi w przypadku przypisywania typu od mniejszej ,,d
 \end{figure}
 Przykładowe konwersje, które nie wymagają jawnego rzutowania, oraz nie powodują utraty danych.
 \lstinputlisting{src/widening.java}
-Możliwe jest też niejawne rzutowania, które powoduje utradę danych
+Możliwe jest też niejawne rzutowania, które powoduje utratę danych
 \lstinputlisting{src/widening-loose.java}
 W przykładzie powyżej kompilator nie zgłosi żadnego błędu.\\
 
-W przypadku ,,poruszanie się'' po hierarchii typów w kierunku niezgodnym z kierunkiem strzałek, wymagane jest jawne rzutowanie. Konwesja ta wiąże się z ryzykiem utraty informacji. Przykłady:  
+W przypadku ,,poruszanie się'' po hierarchii typów w kierunku niezgodnym z kierunkiem strzałek, wymagane jest jawne rzutowanie. Konwersja ta wiąże się z ryzykiem utraty informacji. Przykłady:  
 \lstinputlisting{src/casting.java}
 Aby wykonać rzutowanie, należy przez nazwą rzutowanej zmiennej postawić nazwę typu docelowego w okrągłych nawiasach.
 \subsection{typy obiektowe}
 \subsection{typy tablicowe} 
 Tablica jest rodzajem struktury danych będąca zestawieniem elementów tego samego typu. Dostęp do każdego z tych elementów można uzyskać za pomocą indeksu w postaci liczby typu int. Przykładowo, jeżeli $\textit{a}$ jest tablicą liczb całkowitych, to $\textit{a[i]}$ jest $\textit{i-tym}$ elementem tej tablicy.\\
-Deklaracja zmiennej tablicowej polega na określeniu typu tablicy (czyli podaniu typu elementów i nawiasów kwartatowych $\textit{[]}$) i nazwy zmiennej
+Deklaracja zmiennej tablicowej polega na określeniu typu tablicy (czyli podaniu typu elementów i nawiasów kwadratowych $\textit{[]}$) i nazwy zmiennej
 \begin{lstlisting}
 int [] a;
 \end{lstlisting}
@@ -97,9 +99,9 @@ else
 Bloki $\textit{if()\{ \}}$, $\textit{if() \{ \} else \{ \}}$, $\textit{if() \{ \} else if() \{ \} else \{ \}}$ można dowolnie zagnieżdżać. Przykład
 \lstinputlisting{src/if-example.java}
 \subsection{Pętle}
-Pętla $\textit{while}$ wynonuje blok instrukcji do póki zadany warunek ma wartość $\textit{true}$. Ogólna postać to
+Pętla $\textit{while}$ wykonuje blok instrukcji do póki zadany warunek ma wartość $\textit{true}$. Ogólna postać to
 \lstinputlisting{src/while.java} 
-Jeżeli $\textit{warunek\_logiczny}$ będzie fałszywy przed rozpoczęciem wykonywania bloku $\textit{while}$, instrukcje wewnątrz bloku nie zostaną wykonane. Pętla $\textit{while}$ sprawdza warunek na samym początku działania. W związku z tym jej instrukcje mogą nie zostać wykonane ani razu. Aby mieć pewność, że instrukcje zostaną wkonane co najmniej raz, sprawdzanie warunku trzeba przenieść na sam koniec. Do tego służy pętla $\textit{do-while}$. Jej składnia jest następująca
+Jeżeli $\textit{warunek\_logiczny}$ będzie fałszywy przed rozpoczęciem wykonywania bloku $\textit{while}$, instrukcje wewnątrz bloku nie zostaną wykonane. Pętla $\textit{while}$ sprawdza warunek na samym początku działania. W związku z tym jej instrukcje mogą nie zostać wykonane ani razu. Aby mieć pewność, że instrukcje zostaną wykonane co najmniej raz, sprawdzanie warunku trzeba przenieść na sam koniec. Do tego służy pętla $\textit{do-while}$. Jej składnia jest następująca
 \begin{lstlisting}
 do { 
 	instrukcje
@@ -119,10 +121,10 @@ switch (warunek_wyboru) {
 
 }
 \end{lstlisting}
-W instrukcji $\textit{switch}$ $\textit{warunek\_wyboru}$ nie jest wyrażeniem logiczny, które ewaluuje do wartości logicznej (true / false). $\textit{Warunek\_wyboru}$ powinien być liczą całkowitą (lub char)\footnote{lub enum}. Natępnie instrukcje z $\textit{case}$, który spełnia warunek, są wykonywane kaskadowo w dół.
+W instrukcji $\textit{switch}$ $\textit{warunek\_wyboru}$ nie jest wyrażeniem logiczny, które ewaluuje do wartości logicznej (true / false). $\textit{Warunek\_wyboru}$ powinien być liczą całkowitą (lub char)\footnote{lub enum}. Następnie instrukcje z $\textit{case}$, który spełnia warunek, są wykonywane kaskadowo w dół.
 \lstinputlisting{src/switch.java}
 W powyższym przykładzie, jeżeli wartość wejściowa będzie równa 0, zostanie wyświetlone '0'. W kolejnej linijce znajduje się instrukcja $\textit{break}$, która przerywa działanie $\textit{switch}$.
-Jeżeli, wartość wejściowa będzie równa 1, zostaną wyświetlone następujące napisy: '1', '2,3'. '4' nie zostanie wyświetlone ponieważ, poprzedni blok konczy się instrukcją $break$. Jeżeli wartość wejściowa będzie równa, np. 1000, nie zostanie dopawowany żaden warunek i wykona się instrukcja z $\textit{default}$
+Jeżeli, wartość wejściowa będzie równa 1, zostaną wyświetlone następujące napisy: '1', '2,3'. '4' nie zostanie wyświetlone ponieważ, poprzedni blok kończy się instrukcją $break$. Jeżeli wartość wejściowa będzie równa, np. 1000, nie zostanie dopasowany żaden warunek i wykona się instrukcja z $\textit{default}$
 
 \section{Klasy}
 Program napisany w javie składa się z obiektów. Każdy z nich posiada określony stan, zachowanie, tożsamość. Stan określony przez zmienne, zachowanie definiujemy w metodach, które mogą zmieniać aktualny stan obiektu. Tożsamość pozwala odróżnić dwa obiekty, posiadające ten sam stan, od siebie. \\
@@ -132,12 +134,12 @@ Aby utworzyć obiekt, potrzebujemy szablonu, który definiuje dostępne zachowan
 Klasy przechowywane są w plikach tekstowych (zwyczajowo z rozszerzeniem 'java'). Zdefiniowanych jest szereg reguł dotyczących stworzenia klasy oraz ich struktury
 \begin{itemize}
 \item w pliku źródłowym może być zdefiniowana tylko jedna klasa $\textit{publiczna}$. Może nie być żadnej.
-\item komentarze mogą znajdować się w dowolnym miejscu w pliku
+\item komentarze mogą znajdować się w dowolnym miejscu w pliku
 \item nazwa pliku musi być identyczna do nazwy klasy $\textit{publicznej}$. Przykładowo klasa $public class Point { }$ musi znajdować się w pliku o nazwie $Point.java$
-\item jeśli klasa umieszczona jest w pakiecie, deklaracja pakietu musi znajdować się w pierwszej linijce (nie uwzględniając komentarzy)
-\item definicje importów muszą znajdować się pomiędzy deklaracją pakietu (lub początkiem pliku) oraz definicją pierwszej klasy
-\item definicja pakietu oraz importów odnoszą się do całego pliku
-\item w pliku źródłowym mogą znajdować się definicje $\textit{nie-publicznych}$ klas
+\item jeśli klasa umieszczona jest w pakiecie, deklaracja pakietu musi znajdować się w pierwszej linijce (nie uwzględniając komentarzy)
+\item definicje importów muszą znajdować się pomiędzy deklaracją pakietu (lub początkiem pliku) oraz definicją pierwszej klasy
+\item definicja pakietu oraz importów odnoszą się do całego pliku
+\item w pliku źródłowym mogą znajdować się definicje $\textit{nie-publicznych}$ klas
 \end{itemize}
 
 Najprostsza definicja klasy składa się z słowa kluczowego $\textit{class}$ oraz nazwy klasy.
@@ -148,7 +150,7 @@ Klasa $\textit{Point}$ zdefiniowana w powyższy sposób posiada dodatkowo niejaw
 
  	
 \subsection{Modyfikatory dostępu}
-Służą do określenia 'widzialności' klasy w obrębie projektu, dzięki temu kontrolujemy dostęp do klas.
+Służą do określenia 'widzialności' klasy w obrębie projektu, dzięki temu kontrolujemy dostęp do klas.
 Dostępne są cztery poziomy dostępu oraz trzy modyfikatory dostępu, są to kolejno
 \begin{itemize}
 \item private - dane dostępne tylko w ramach danej klasy
@@ -171,7 +173,39 @@ package shapes;
 
 class Triangle { }
 
-\end{	lstlisting}
+\end{lstlisting}
 
+
+\section{Interfejs}
+
+Tworząc interfejs definiujemy rodzaj kontraktu opisującego co dana klasa ma robić, nie wspominając o tym w jaki sposób ma tego dokonać.
+Przykładowo, mamy obiekt $\textit{Calculator}$ wykonujący obliczenia na obiektach reprezentujących figury geometryczne.
+
+\inputminted[bgcolor=bg,linenos=true]{java}{src/w05/Calculator.java}
+ 
+ 
+Dla każdego typu obiektu, klasa Calculator, posiada jedną metodę wykonującą obliczenia dla niego.  Zmiana zasad przeprowadzania obliczeń wymusza zmianę kodu w trzech miejscach. Np. jeśli pole powierzchni figury musi być przeliczone na inne jednostki niż zwracane przez metodę getArea(). Podobnie gdy dodamy nowy typ reprezentujący prostokąt, zmuszeni będziemy do zmiany klasy Calculator. 
+
+\inputminted[bgcolor=bg,linenos=true]{java}{src/w05/Calculatornewshape.java}
+
+M.in. w takim przypadku stosuje się interface, który sprowadza figury geometryczne do opisu zachowania, bez definiowania konkretnej implementacji. Wprowadzając interface Shape.java
+
+\inputminted[bgcolor=bg,linenos=true]{java}{src/w05/Shape.java}
+
+definiujemy wspólne API dla wszystkich klas, które będą go implementowały. Po utworzeniu interface musimy 'poinformować' klasę Calculator, że metody będą pracowały na czymś co jest 'Shape' bez określenia konkretnego typu. 
+
+\inputminted[bgcolor=bg,linenos=true]{java}{src/w05/CalculatorRefactor.java}
+
+Dzięki takie operacji możemy pozbyć się pozostałych metod calculate. Następnie, każda z figur musi implementować $\textit{typ Shape}$ 
+
+\inputminted[bgcolor=bg,linenos=true]{java}{src/w05/Calculatorinterface.java}
+
+Zalety takie podejścia:
+\begin{itemize}
+\item wspólne API
+\item w przypadku zmiany sposobu obliczeń w klasie Calculator zmiany kodu tylko w jednymi miejscu
+\item mniejsza liczba kodu testującego
+\item w przypadku wprowadzenia nowego kształtu (Rectangle) nie ma potrzeby wprowadzania zmian w klasie Calculator
+\end{itemize}
 
 \end{document}
