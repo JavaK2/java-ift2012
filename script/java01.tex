@@ -11,6 +11,7 @@
 \usepackage{minted}
 \begin{document}
 \definecolor{bg}{rgb}{0.95,0.95,0.95}
+\definecolor{bgr}{rgb}{0.95,0.60,0.60}
 
 Java jest wysokopoziomowym, kompilowanym, obiektowym językiem programowania z silną kontrolą typów. Oznacza to, że każda zmienna musi zostać zadeklarowana przed użyciem. 
 
@@ -207,5 +208,34 @@ Zalety takie podejścia:
 \item mniejsza liczba kodu testującego
 \item w przypadku wprowadzenia nowego kształtu (Rectangle) nie ma potrzeby wprowadzania zmian w klasie Calculator
 \end{itemize}
+\subsection{Właściowości}
+\begin{itemize}
+\item nie można utworzyć instancji interfejsu
+\item interfejs nie może posiadać konstruktora
+\item interfejs nie posiada pól instancyjnych
+\item klasy implementują interfejs
+\item interfejsy rozszerzają inne interfejsy
+\end{itemize}
+\begin{minted}[bgcolor=bgr]{java}
+
+Shape shape = new Shape();
+
+\end{minted}
+Ponieważ interfejs nie posiada ciała, ani konstruktora nie można utworzyć nowej instancji przy pomocy operatora $\textit{new}$.
+Interfejs może jedynie być użyty jako typ referencyjny.\\
+\begin{minted}[bgcolor=bg]{java}
+Shape shape = new Rectangle(); 
+\end{minted}
+Na referencji $\textit{shape}$ można wywołać wszystkie metody, które zostały zdefiniowane w interfejsie $\textit{Shape}$.
+
+\section{Klasa abstrakcyjna}
+W przeciwieństwie do interfejsu, który jest całkowicie abstrakcyjną klasą bazową, pozbawioną implementacji, słowo kluczowe abstract pozwala na zdefiniowanie typu abstrakcyjnego, będącego czymś pomiędzy interfejsem, a klasą konkretną.\\
+Klasa abstrakcyjna może posiadać metody konkretne (posiadające ciało) oraz metody abstrakcyjne wymagające implementacji. Podobnie jak w przypadku interfejsów tworzenie obiektu klasy abstrakcyjnej nie ma sensu, możemy natomiast dostarczyć konstruktor.
+
+\inputminted[bgcolor=bg]{java}{./src/w05/Polygon.java}
+
+Klasa abstrakcyjna może rozszerzać inne klasy (abstrakcyjne lub konkretne) lub implementować dowolny interfejs. Należy pamiętać o ograniczeniu, mówiącym, że można rozszerzać tylko dziedziczyć po jednej klasy w danym momencie.
+
+\inputminted[bgcolor=bg]{java}{./src/w05/Polygon.ext.java}
 
 \end{document}
